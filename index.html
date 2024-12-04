@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MySpotify - Home</title>
+  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <!-- Top Navigation Bar -->
+  <header class="navbar">
+    <!-- Home button -->
+    <a href="#" onclick="showHome()" class="nav-link">Home</a>
+
+    <!-- Centered Search Bar -->
+    <div class="search-container">
+      <input type="text" id="searchInput" class="search-bar" placeholder="Search for music or artists" onkeypress="handleSearch(event)">
+    </div>
+
+    <!-- Right-side account options -->
+    <div id="accountOptions">
+      <a href="#" id="signupBtn" onclick="showSignup()" class="nav-link">Sign Up</a>
+      <a href="#" id="loginBtn" onclick="showLogin()" class="nav-link">Log In</a>
+    </div>
+  </header>
+
+  <!-- Main Wrapper for Layout -->
+  <div class="main-wrapper">
+    <div class="tabbed-container">
+      <!-- Sidebar Library Tab -->
+      <nav id="library-tab" class="library-tab">
+        <div class="library-content">
+          <h4>Your Library</h4>
+          <ul class="list-group">
+            <li class="list-group-item" onclick="showLikedSongsPage()">Liked Songs</li>
+            <div id="playlistContainer"></div>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Main Content Area -->
+      <main class="main-content" id="mainContent">
+        <section id="homeSection">
+          <h2>Welcome to MySpotify</h2>
+          <p>Discover your favorite music and explore new tunes</p>
+        </section>
+
+        <section id="accountSection" style="display: none;">
+          <h2>Account</h2>
+          <p>Manage your account details here.</p>
+          <button onclick="logout()">Log Out</button>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- Footer with Player Controls -->
+  <footer class="footer-player">
+    <div class="player-controls">
+      <button id="prevBtn" class="control-btn" onclick="playPrevious()"><i class="fas fa-backward"></i></button>
+      <button id="playPauseBtn" class="control-btn" onclick="togglePlayPause()"><i class="fas fa-play"></i></button>
+      <button id="nextBtn" class="control-btn" onclick="playNext()"><i class="fas fa-forward"></i></button>
+    </div>
+    <div class="progress-bar-container">
+      <span id="currentTime" class="time-label">0:00</span>
+      <input type="range" id="progressBar" value="0" max="100" step="1">
+      <span id="totalTime" class="time-label">0:00</span>
+    </div>
+    <div class="volume-control">
+      <input type="range" id="volumeControl" min="0" max="1" step="0.1" value="0.5" onchange="setVolume(this.value)">
+    </div>
+    <div class="current-song-info">
+      <img id="currentAlbumArt" class="album-art" src="" alt="Album Art">
+      <div class="song-details">
+        <p id="currentSongTitle">Title</p>
+        <p id="currentSongArtist">Artist</p>
+      </div>
+    </div>
+    <audio id="audioPlayer" controls style="display: none;"></audio>
+  </footer>
+  <script src="./js/main.js"></script>
+</body>
+</html>
