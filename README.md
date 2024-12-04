@@ -13,7 +13,8 @@ MySpotify is a web-based music application inspired by Spotify. It provides a mo
 - **Responsive Design**: Accessible across various screen sizes and devices.
 
 ### User-Specific Features:
-- **Sign Up/Login**: Users can register using their email, name, and date of birth, and log in.
+- **Sign Up/Login**: Users can register using their email, name, and date of birth, and log in. Being logged in allows the user to like and queue songs.
+- **Library**: Allows you to view your liked songs.
 
 ---
 
@@ -66,10 +67,20 @@ All audio and image files are hosted externally on Dropbox.
 ## How to Use
 1. **Sign Up/Log In**:
    - Register with your email, name, and date of birth.
-   - The login feature is technically a placeholder, as most features requiring login are not currently implemented. However, you can still sign up and log in to test its functionality.
+   - When you are logged in you are able to queue songs and also like songs.
 
 2. **Search Songs**:
-   - Use the search bar to find songs by title.
+   - Use the search bar to find songs and artists by title.
 
 3. **Play Songs**:
    - Use the play/pause and skip buttons in the footer audio player to control playback.
+
+4. **Queue Songs**:
+   - Pressing the options button next a song allows you to queue a song. you can use the backwards and forwards skip buttons to skip backwards and forwards in the queue.
+  
+5. **Like Songs:**
+   - Pressing the heart button next to a song will like the song. Liked songs will show up in the liked songs section of the library.
+
+
+
+
