@@ -15,7 +15,7 @@
 
     <!-- Centered Search Bar -->
     <div class="search-container">
-      <input type="text" id="searchInput" class="search-bar" placeholder="Search for music, artists, or albums" onkeypress="handleSearch(event)">
+      <input type="text" id="searchInput" class="search-bar" placeholder="Search for music or artists" onkeypress="handleSearch(event)">
     </div>
 
     <!-- Right-side account options -->
@@ -33,8 +33,7 @@
         <div class="library-content">
           <h4>Your Library</h4>
           <ul class="list-group">
-            <li class="list-group-item" onclick="showLikedSongs()">Liked Songs</li>
-            <li class="list-group-item" onclick="createPlaylistPrompt()">Create Playlist</li>
+            <li class="list-group-item" onclick="showLikedSongsPage()">Liked Songs</li>
             <div id="playlistContainer"></div>
           </ul>
         </div>
@@ -58,13 +57,28 @@
 
   <!-- Footer with Player Controls -->
   <footer class="footer-player">
-    <button id="prevBtn" class="control-btn" onclick="playPrevious()"><i class="fas fa-backward"></i></button>
-    <button id="playPauseBtn" class="control-btn" onclick="togglePlayPause()"><i class="fas fa-play"></i></button>
-    <button id="nextBtn" class="control-btn" onclick="playNext()"><i class="fas fa-forward"></i></button>
-    <input type="range" id="volumeControl" min="0" max="1" step="0.1" value="0.5" onchange="setVolume(this.value)">
+    <div class="player-controls">
+      <button id="prevBtn" class="control-btn" onclick="playPrevious()"><i class="fas fa-backward"></i></button>
+      <button id="playPauseBtn" class="control-btn" onclick="togglePlayPause()"><i class="fas fa-play"></i></button>
+      <button id="nextBtn" class="control-btn" onclick="playNext()"><i class="fas fa-forward"></i></button>
+    </div>
+    <div class="progress-bar-container">
+      <span id="currentTime" class="time-label">0:00</span>
+      <input type="range" id="progressBar" value="0" max="100" step="1">
+      <span id="totalTime" class="time-label">0:00</span>
+    </div>
+    <div class="volume-control">
+      <input type="range" id="volumeControl" min="0" max="1" step="0.1" value="0.5" onchange="setVolume(this.value)">
+    </div>
+    <div class="current-song-info">
+      <img id="currentAlbumArt" class="album-art" src="" alt="Album Art">
+      <div class="song-details">
+        <p id="currentSongTitle">Title</p>
+        <p id="currentSongArtist">Artist</p>
+      </div>
+    </div>
     <audio id="audioPlayer" controls style="display: none;"></audio>
   </footer>
-
   <script src="./js/main.js"></script>
 </body>
 </html>
